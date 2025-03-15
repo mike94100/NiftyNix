@@ -1,5 +1,5 @@
 /*
-curl https://api.github.com/repos/mike94100/NiftyNix/contents/disko-NiftyNix.nix /tmp/disko-NiftyNix.nix
+curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/disko-NiftyNix.nix -o /tmp/disko-NiftyNix.nix
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko-NiftyNix.nix
 
 Partition Layout
