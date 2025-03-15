@@ -40,6 +40,7 @@ crypt BTRFS 100%
                 type = "luks";
                 name = "crypt";
                 passwordFile = "/tmp/secret.key"; # Enable for interactive password entry
+                askPassword = true; # Enable for interactive password entry
                 settings = {
                   allowDiscards = true;
                   #keyFile = "/tmp/secret.key"; # Disable for interactive password entry (precreated key file required)
