@@ -18,7 +18,7 @@ crypt BTRFS 100%
         content = {
           type = "gpt";
           partitions = {
-            /* grub MBR
+            /* Uncomment for MBR if needed
             boot = {
                 size = "1M"
                 type = "EF02"
@@ -39,16 +39,14 @@ crypt BTRFS 100%
               content = {
                 type = "luks";
                 name = "crypt";
-                passwordFile = "/tmp/secret.key"; # Enable for interactive password entry
-                askPassword = true; # Enable for interactive password entry
+                #passwordFile = "/tmp/disk.key"; # Path to file containing the password for initial encryption
+                askPassword = true; # Ask for password for initial encryption
                 settings = {
                   allowDiscards = true;
-                  #keyFile = "/tmp/secret.key"; # Disable for interactive password entry (precreated key file required)
                 };
-                #additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-f" ]; # Overrside existing partition
+                  extraArgs = [ "-f" ]; # Override existing partition
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
