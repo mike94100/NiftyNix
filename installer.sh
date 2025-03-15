@@ -29,6 +29,6 @@ DEV=${DEVICES[$(($DEVICE+1))]}
 read -p "Partition ${DEV}? [Y/n] " ANSWER
 
 if [ "$ANSWER" = "Y" ]; then
-    curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/disko-NiftyNix.nix -o /tmp/disko-NiftyNix.nix
-    sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko-NiftyNix.nix
+    curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/disko.nix -o /tmp/disko.nix
+    sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko.nix
 fi
