@@ -1,7 +1,4 @@
 /*
-curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/disko-NiftyNix.nix -o /tmp/disko-NiftyNix.nix
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko-NiftyNix.nix
-
 Partition Layout
 /boot FAT32 512M
 crypt BTRFS 100%
