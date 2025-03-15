@@ -32,3 +32,15 @@ if [ "$ANSWER" = "Y" ]; then
     curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/disko.nix -o /tmp/disko.nix
     sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko.nix
 fi
+
+echo "Generate NixOS configuration."
+sudo nixos-generate-config --root /mnt
+
+read -p "Press enter to open the Nix configuration in nano."
+sudo nano /mnt/etc/nixos/configuration.nix
+
+echo "Install NixOS..."
+sudo nixos-install
+
+read -p "Remove installation media. Press enter to reboot." NULL
+reboot
