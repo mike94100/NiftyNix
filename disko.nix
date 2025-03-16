@@ -34,11 +34,11 @@ crypt BTRFS 100%
             root = {
               size = "100%";
               content = {
-                type = "btrfs";
+            	type = "btrfs";
                 extraArgs = [ "-f" ]; # Override existing partition
                 subvolumes = {
-                    "/root" = {
-                        mountpoint = "/";
+                	"/root" = {
+                    	mountpoint = "/";
                         mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/home" = {
@@ -48,14 +48,13 @@ crypt BTRFS 100%
                     "/nix" = {
                       mountpoint = "/nix";
                       mountOptions = [ "compress=zstd" "noatime" ];
-                    };
+                	};
                   };
-                };
+            	};
               };
             };
           };
         };
       };
     };
-  };
 }
