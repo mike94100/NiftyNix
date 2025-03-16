@@ -40,6 +40,7 @@ read -p "Press enter to open the Nix configuration in nano."
 sudo nano /mnt/etc/nixos/configuration.nix
 
 echo "Install NixOS..."
+cd /mnt
 sudo nixos-install
 
 read -p "Remove installation media. Press enter to reboot." NULL
