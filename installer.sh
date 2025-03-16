@@ -2,7 +2,8 @@
 #
 # For installing NixOS-NiftyNix from minimal iso
 #
-# To run: sh -c "$(curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/installer.sh)"
+# To run:
+# sh -c "$(curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/installer.sh)"
 
 echo "--------------------------------------------------------------------------------"
 echo "Storage devices will be listed."
