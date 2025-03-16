@@ -31,27 +31,19 @@ crypt BTRFS 100%
                 mountOptions = [ "umask=0077" ];
               };
             };
-            luks = {
+            root = {
               size = "100%";
               content = {
-                type = "luks";
-                name = "crypt";
-                #passwordFile = "/tmp/disk.key"; # Path to file containing the password for initial encryption
-                askPassword = true; # Ask for password for initial encryption
-                settings = {
-                  allowDiscards = true;
-                };
-                content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ]; # Override existing partition
-                  subvolumes = {
+                type = "btrfs";
+                extraArgs = [ "-f" ]; # Override existing partition
+                subvolumes = {
                     "/root" = {
-                      mountpoint = "/";
-                      mountOptions = [ "compress=zstd" "noatime" ];
+                        mountpoint = "/";
+                        mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = [ "compress=zstd" "noatime" ];
+                        mountpoint = "/home";
+                        mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/nix" = {
                       mountpoint = "/nix";
