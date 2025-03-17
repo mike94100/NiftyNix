@@ -48,7 +48,7 @@ crypt BTRFS 100%
                     "/nix" = {
                         mountpoint = "/nix";
                         mountOptions = [ "compress=zstd" "noatime" ];
-                	};
+                    };
                   };
             	};
               };
