@@ -29,9 +29,19 @@ DEV=${DEVICES[$(($DEVICE+1))]}
 
 read -p "Partition ${DEV}? [Y/n] " ANSWER
 
-if [ "$ANSWER" = "Y" ]; then
-    curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/disko.nix -o /tmp/disko.nix
-    sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko.nix
+if [ "$ANSWER" = "n" ]; then
+    exit 1
+fi
+
+curl https://raw.githubusercontent.com/mike94100/NiftyNix/main/disko.nix -o /tmp/disko.nix
+
+read -p "Destroy, format, and mount the drive? Or remount matching partition configuration?  [1/2]" ANSWER
+if [ "$ANSWER" = "1" ]; then
+    sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode destroy,format,mount /tmp/disko.nix
+elif [ "$ANSWER" = "2" ]; then
+    sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode mount /tmp/disko.nix
+else
+    exit 1
 fi
 
 echo "Generate NixOS configuration."
